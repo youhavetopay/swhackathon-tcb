@@ -1,7 +1,8 @@
-import { Link, Route, BrowserRouter as Router } from "react-router-dom"
+import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom"
 import Main from "../pages/Main"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
+import NoPageFound from "../pages/NoPageFound"
 
 function Header() {
     return (
@@ -19,9 +20,12 @@ function Header() {
             </header>
             <hr />
             <main>
-                <Route exact path="/" component={Main} />
-                <Route path="/login" component={Login} />
-                <Route path="/register" component={Register} />
+                <Switch>
+                    <Route exact path="/" component={Main} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
+                    <Route component={NoPageFound} />
+                </Switch>
             </main>
         </Router>
     );
