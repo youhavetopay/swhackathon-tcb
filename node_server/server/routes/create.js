@@ -5,6 +5,7 @@ var router = express.Router()
 const CreateController = require('../controller/createController')
 const Createcontent = new CreateController()
 
+// 글 생성
 router.post('/createContent', Createcontent.createContent, (req, res)=>{
   if(req.contenState){
         res.send({

@@ -8,6 +8,8 @@ moment.tz.setDefault("Asia/Seoul");
 
 // 컨트롤러 클래스
 class CreateController {
+
+  // 글 생성 
   async createContent(req, res, next) {
     //수정 data
     var title = 'test입니다.' //req.body.title
