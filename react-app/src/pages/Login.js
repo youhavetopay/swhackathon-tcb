@@ -23,11 +23,6 @@ export class Login extends React.Component {
               <button type="button" className="btn">카카오톡 로그인</button><br></br>
             </div>
           </div>
-          <div className="footer">
-            <Link to="./User"> 
-              <button> 회원가입 </button>
-            </Link>
-          </div>
         </div>
       );
     }

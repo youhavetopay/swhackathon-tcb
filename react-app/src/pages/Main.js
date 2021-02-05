@@ -1,9 +1,7 @@
 function Main() {
     return(
         <div>
-            <p>
-                Main Page
-            </p>
+            <img src='../images/welcome_screen.png' alt='MainScreen'></img>
         </div>
     );
 }
