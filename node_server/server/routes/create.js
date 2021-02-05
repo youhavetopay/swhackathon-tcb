@@ -5,8 +5,27 @@ var router = express.Router()
 const CreateController = require('../controller/createController')
 const Createcontent = new CreateController()
 
+// 글 생성
 router.post('/createContent', Createcontent.createContent, (req, res)=>{
   if(req.contenState){
+        res.send({
+            state:'success'
+        })
+    }
+})
+
+// 글 수정
+router.post('/updateContent', Createcontent.updateContent, (req, res)=>{
+  if(req.contenUadateState){
+        res.send({
+            state:'success'
+        })
+    }
+})
+
+// 글 삭제
+router.post('/deleteContent', Createcontent.deleteContent, (req, res)=>{
+  if(req.contenDeleteState){
         res.send({
             state:'success'
         })
