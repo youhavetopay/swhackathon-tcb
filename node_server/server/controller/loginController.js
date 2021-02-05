@@ -11,21 +11,21 @@ class LoginController{
 
                 let userInfo = req.user
 
-                conn.query('select * from users where user_id = ? and user_name = ? and email_provider = ?',[
-                    userInfo.id, userInfo.displayName ,userInfo.provider
+                conn.query('select * from users where user_id = ? and email_provider = ?',[
+                    userInfo.id ,userInfo.provider
                 ], (err, checkId)=>{
                     if(err) throw err
 
                     if(checkId.length){
                         conn.release()
-                        res.send({
-                            state:'이미 가입된 아이디 있음',
-                            userInfo:{
-                                id:userInfo.id,
-                                userName:userInfo.displayName,
-                                email:userInfo.provider
-                            }
-                        })
+                        req.session.user = {
+                            id:userInfo.id,
+                            userName:userInfo.displayName,
+                            email:userInfo.provider
+                        }
+                        console.log(req.session.user, '  logintest');
+                        res.redirect('https://www.tensorflow.org/')
+                        
                     }
                     else{
                         conn.query('insert into users values(?,?,?)',[
@@ -34,14 +34,13 @@ class LoginController{
                             if(err) throw err
 
                             conn.release()
-                            res.send({
-                                state:'새로운 회원',
-                                userInfo:{
-                                    id:userInfo.id,
-                                    userName:userInfo.displayName,
-                                    email:userInfo.provider
-                                }
-                            })
+                            req.session.user = {
+                                id:userInfo.id,
+                                userName:userInfo.displayName,
+                                email:userInfo.provider
+                            }
+                            console.log(req.session.user, '  logintest');
+                            res.redirect('https://www.tensorflow.org/')
                         })
                     }
                 })
@@ -49,7 +48,7 @@ class LoginController{
             else{
                 conn.release()
                 res.send({
-                    state:'login fail'
+                    state:'fail'
                 })
             }
         })
