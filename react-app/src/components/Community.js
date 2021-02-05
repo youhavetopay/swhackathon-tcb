@@ -30,6 +30,7 @@ function Community(){
                     <Route path="/user" component={User} />
                     <Route path="/posts" component={PostList} />
                     <Route path="/write" render={() => <WritePost postnum={null}/>} />
+                    <Route path="/postview" component={PostView} />
                     <Route component={NoPageFound} />
                 </Switch>
             </main>

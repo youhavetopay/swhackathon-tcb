@@ -5,8 +5,6 @@ import NoPageFound from "../pages/NoPageFound"
 
 function Welcome(){
 
-    const isnew = true;
-
     return (
         <Router>
             <header>
