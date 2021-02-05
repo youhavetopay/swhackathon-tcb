@@ -1,11 +1,11 @@
-function Register() {
+function ComMain() {
     return(
         <div>
             <p>
-                Register Page
+                Community Main Page
             </p>
         </div>
     );
 }
 
-export default Register;
+export default ComMain;

@@ -1,21 +1,24 @@
 import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom"
 import Main from "../pages/Main"
 import Login from "../pages/Login"
-import Register from "../pages/Register"
+import WritePost from "../pages/WritePost"
 import NoPageFound from "../pages/NoPageFound"
 
-function Header() {
+function Welcome(){
+
+    const isnew = true;
+
     return (
         <Router>
-            <header className="Header">
+            <header>
                 <Link to="/">
                     <button>Main</button>
                 </Link>
                 <Link to="/login">
                     <button>Login</button>
                 </Link>
-                <Link to="/register">
-                    <button>Register</button>
+                <Link to="/write">
+                    <button>Test</button>
                 </Link>
             </header>
             <hr />
@@ -23,7 +26,7 @@ function Header() {
                 <Switch>
                     <Route exact path="/" component={Main} />
                     <Route path="/login" component={Login} />
-                    <Route path="/register" component={Register} />
+                    <Route path="/write" render={() => <WritePost posttitle={null}/>} />
                     <Route component={NoPageFound} />
                 </Switch>
             </main>
@@ -31,4 +34,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default Welcome;

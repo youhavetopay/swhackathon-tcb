@@ -1,0 +1,20 @@
+.post-title {
+    width: 80%;
+    height: 30px;
+    margin: 0px;
+}
+
+.post-submit {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    background: cornflowerblue;
+    border-radius: 5px;
+    margin-top: 30px;
+    vertical-align: middle; 
+  }
+  
+  .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+    min-height: 500px;
+  }
