@@ -16,7 +16,7 @@ router.post('/createContent', Createcontent.createContent, (req, res)=>{
 
 // 글 수정
 router.post('/updateContent', Createcontent.updateContent, (req, res)=>{
-  if(req.contenUadateState){
+  if(req.contenUpdateState){
         res.send({
             state:'success'
         })

@@ -53,7 +53,7 @@ class CreateController {
     var category = '테스트카테고리상세'
     var pic_path = 'C://usr/sw' //필수조건 아님
 
-    req.contenUadateState = false;
+    req.contenUpdateState = false;
 
     pool.getConnection((err, conn)=>{
       if(err) throw err;
@@ -68,7 +68,7 @@ class CreateController {
         ], (err)=>{
           if(err) throw err;
 
-          req.contenUadateState = true;
+          req.contenUpdateState = true;
           conn.release()
           next();
         })
