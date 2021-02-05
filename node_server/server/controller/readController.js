@@ -1,4 +1,4 @@
-const pool = require('../dbconfig/dbconfig')
+const pool = require('../config/dbconfig')
 
 
 let moment = require('moment');

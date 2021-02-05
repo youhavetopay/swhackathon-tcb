@@ -1,5 +1,5 @@
 // dbconfig에 있는 연결정보 가져오기
-const pool = require('../dbconfig/dbconfig')
+const pool = require('../config/dbconfig')
 
 // 컨트롤러 클래스
 class UsersController {

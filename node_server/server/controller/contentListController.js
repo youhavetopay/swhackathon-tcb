@@ -1,5 +1,5 @@
 // dbconfig에 있는 연결정보 가져오기
-const pool = require('../dbconfig/dbconfig')
+const pool = require('../config/dbconfig')
 
 // 사용하는 모듈이나 라이브러리 정의
 let moment = require('moment');
