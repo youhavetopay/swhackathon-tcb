@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import './Login.css'
-//import loginImg from "../../login.svg";
 
 
 
@@ -14,9 +13,9 @@ export class Login extends React.Component {
       return (
         <div className="base-container" ref={this.props.containerRef}>
           <div className="content">
-            {/* <div className="image">
-              <img src={loginImg} />
-            </div> */}
+            <div className="text_login">
+              <h2>SNS 계정 로그인</h2>
+            </div> 
             <div className="form">
               <button type="button" className="btn"><img src='https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png?hl=ko' alt="Google"></img></button><br></br>
               <button type="button" className="btn"><img src='https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png' alt='Kakao'></img></button><br></br>
