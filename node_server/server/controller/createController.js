@@ -1,5 +1,5 @@
 // dbconfig에 있는 연결정보 가져오기
-const pool = require('../dbconfig/dbconfig')
+const pool = require('../config/dbconfig')
 
 // 사용하는 모듈이나 라이브러리 정의
 let moment = require('moment');
@@ -12,10 +12,10 @@ class CreateController {
   // 글 생성
   async createContent(req, res, next) {
     //수정 data
-    var title = 'test입니다.' //req.body.title
-    var content = 'testtesttest!!!' //req.body.content
-    var category = '테스트카테고리상세'
-    var user_id = 'test'
+    var title = req.body.title //req.body.title
+    var content = req.body.content //req.body.content
+    var category = req.body.category
+    var user_id = req.body.user_id
     var pic_path = 'C://usr' //필수조건 아님
 
     var contentCount = 0
@@ -47,13 +47,13 @@ class CreateController {
   // 글 수정
   async updateContent(req, res, next) {
     //수정 data
-    var content_num = 4
-    var title = 'test입니다.' //req.body.title
-    var content = 'test' //req.body.content
-    var category = '테스트카테고리상세'
+    var content_num = req.params.contentNum
+    var title = req.body.title //req.body.title
+    var content = req.body.content //req.body.content
+    var category = req.body.category
     var pic_path = 'C://usr/sw' //필수조건 아님
 
-    req.contenUadateState = false;
+    req.contenUpdateState = false;
 
     pool.getConnection((err, conn)=>{
       if(err) throw err;
@@ -68,7 +68,7 @@ class CreateController {
         ], (err)=>{
           if(err) throw err;
 
-          req.contenUadateState = true;
+          req.contenUpdateState = true;
           conn.release()
           next();
         })
@@ -79,7 +79,7 @@ class CreateController {
   // 글 삭제
   async deleteContent(req, res, next) {
     //수정 data
-    var content_num = 4
+    var content_num = req.params.contentNum
 
     req.contenDeleteState = false;
 

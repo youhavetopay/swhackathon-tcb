@@ -5,6 +5,9 @@ import WritePost from "../pages/WritePost"
 import NoPageFound from "../pages/NoPageFound"
 
 function Welcome(){
+
+    const isnew = true;
+
     return (
         <Router>
             <header>
@@ -23,7 +26,7 @@ function Welcome(){
                 <Switch>
                     <Route exact path="/" component={Main} />
                     <Route path="/login" component={Login} />
-                    <Route path="/write" component={WritePost} />
+                    <Route path="/write" render={() => <WritePost posttitle={null}/>} />
                     <Route component={NoPageFound} />
                 </Switch>
             </main>
