@@ -16,3 +16,24 @@
 .default-link {
   color: #61dafb;
 }
+
+header {
+  padding: 1%;
+  padding-bottom: 35px;
+}
+
+.leftmenu {
+  margin-left: 5%;
+  float: left;
+}
+
+.rightmenu {
+  margin-right: 5%;
+  float: right;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+}

@@ -5,22 +5,27 @@ import PostList from "../pages/PostList"
 import WritePost from "../pages/WritePost"
 import NoPageFound from "../pages/NoPageFound"
 import PostView from "../pages/PostView"
+import { FaHome } from "react-icons/fa"
+import { FaListUl } from "react-icons/fa"
+import { FaPencilAlt } from "react-icons/fa"
+import { GrUserSettings } from "react-icons/gr"
+import "./default.css"
 
 function Community(){
     return (
         <Router>
             <header>
-                <Link to="/">
-                    <button>Main</button>
+                <Link to="/" className="leftmenu">
+                    <button><FaHome />&nbsp; 불편수거함</button>
                 </Link>
-                <Link to="/user">
-                    <button>User</button>
+                <Link to="/posts" className="leftmenu">
+                    <button><FaListUl />&nbsp; 글 목록</button>
                 </Link>
-                <Link to="/posts">
-                    <button>Posts</button>
+                <Link to="/user" className="rightmenu">
+                    <button><GrUserSettings />&nbsp; Setting</button>
                 </Link>
-                <Link to="/write">
-                    <button>Test</button>
+                <Link to="/write" className="rightmenu">
+                    <button><FaPencilAlt />&nbsp; 글 쓰기</button>
                 </Link>
             </header>
             <hr />
