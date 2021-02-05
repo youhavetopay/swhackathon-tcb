@@ -30,7 +30,7 @@ function WritePost(props) {
             return 0;
         }
 
-        if (props.post-title != null)
+        if (props.posttitle == null)
             Axios.post('http://localhost:3306/createContent', {
                 title: postContent.title,
                 content: postContent.content
@@ -59,7 +59,7 @@ function WritePost(props) {
                     editor={ClassicEditor}
                     data=""
                     onReady={editor => {
-                        if(props.isnew)
+                        if(props.posttitle == null)
                             console.log('새 글을 작성합니다', editor);
                         else{
                             console.log('기존 글을 수정합니다', editor);

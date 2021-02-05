@@ -12,7 +12,7 @@ function PostView(props) {
         }
     }
     const editPost = async () => {
-        <Route path="/write" render={() => <WritePost post-title={props.title}/>} />
+        <Route path="/write" render={() => <WritePost posttitle={props.title}/>} />
     }
     // 작성자와 보는사람이 같으면 수정/삭제 버튼 표시
 
