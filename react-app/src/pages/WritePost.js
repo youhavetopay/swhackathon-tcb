@@ -21,7 +21,7 @@ function WritePost(props) {
         });
     };
 
-    const uuid = props.user_id || 0;
+    const uuid = props.user_id || 'test';
 
     const submitPost = () => {
 
@@ -42,7 +42,7 @@ function WritePost(props) {
             Axios.post('http://localhost:3002/create/createContent', {
                 title: postContent.title,
                 content: postContent.content,
-                de_cate_name: postContent.category,
+                category: "테스트카테고리상세",
                 user_id: uuid
             }).then(() => {
                 alert('게시글이 업로드되었습니다!');
@@ -67,7 +67,7 @@ function WritePost(props) {
             <div className="post-editor">
                 <h2>게시글 작성하기</h2>
                 <input className="post-title" type='text' placeholder='제목을 입력해주세요' onChange={getValue} name="title" />
-                <select className="post-category" onChange={getValue} name="category" required>
+                <select className="post-category" onChange={getValue} name="category">
                     <option value="">선택</option>
                     <option value="Daily">생활</option>
                     <option value="Office">직장</option>
@@ -82,7 +82,8 @@ function WritePost(props) {
                             console.log('새 글을 작성합니다', editor);
                         else{
                             console.log('기존 글을 수정합니다', editor);
-                            Axios.get()
+                            postContent.title = props.elem.content_title;
+                            postContent.content = props.elem.content;
                         }
                     }}
                     onChange={(event, editor) => {
@@ -91,9 +92,6 @@ function WritePost(props) {
                             ...postContent,
                             content: data
                         })
-                    }}
-                    onBlur={(event, editor) => {
-                        console.log(postContent);
                     }}
                 />
             </div>

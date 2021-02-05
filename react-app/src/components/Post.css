@@ -1,0 +1,14 @@
+.title {
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    width: 90%;
+    text-align: left;
+    display: inline;
+}
+
+.likes {
+    border: 0;
+    outline: 0;
+    display: inline;
+}
