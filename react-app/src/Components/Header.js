@@ -1,6 +1,6 @@
 import "./default.css"
-import Community from "./Community"
 import Welcome from "./Welcome"
+import Community from "./Community"
 
 function Header(props) {
     if (props.isauthed)
