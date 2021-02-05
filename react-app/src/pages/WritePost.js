@@ -36,10 +36,7 @@ function WritePost() {
                         })
                     }}
                     onBlur={(event, editor) => {
-                        console.log('Blur.', editor);
-                    }}
-                    onFocus={(event, editor) => {
-                        console.log('Focus.', editor);
+                        console.log(postContent);
                     }}
                 />
             </div>
