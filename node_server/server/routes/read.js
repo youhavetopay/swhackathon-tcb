@@ -11,7 +11,7 @@ router.get('/readContent/:contentNum', Read.getContent, (req, res)=>{
     if(req.commentList){
       res.send({
         contentInfo:req.contentInfo,
-        likeCount:req.likeCount,
+        //likeCount:req.likeCount,
         commentList:req.commentList
       })
     }

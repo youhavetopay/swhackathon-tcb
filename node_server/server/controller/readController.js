@@ -9,7 +9,7 @@ class ReadController {
 
   // 글 상세내역 가져오기
   async getContent(req, res, next) {
-    let comment_num = req.params.commentNum
+    let comment_num = req.params.contentNum
 
     pool.getConnection((err, conn) => {
       if (err) throw err

@@ -12,10 +12,10 @@ class CreateController {
   // 글 생성
   async createContent(req, res, next) {
     //수정 data
-    var title = 'test입니다.' //req.body.title
-    var content = 'testtesttest!!!' //req.body.content
-    var category = '테스트카테고리상세'
-    var user_id = 'test'
+    var title = req.body.title //req.body.title
+    var content = req.body.content //req.body.content
+    var category = req.body.category
+    var user_id = req.body.user_id
     var pic_path = 'C://usr' //필수조건 아님
 
     var contentCount = 0
@@ -48,9 +48,9 @@ class CreateController {
   async updateContent(req, res, next) {
     //수정 data
     var content_num = req.params.contentNum
-    var title = 'test입니다.' //req.body.title
-    var content = 'test' //req.body.content
-    var category = '테스트카테고리상세'
+    var title = req.body.title //req.body.title
+    var content = req.body.content //req.body.content
+    var category = req.body.category
     var pic_path = 'C://usr/sw' //필수조건 아님
 
     req.contenUpdateState = false;
