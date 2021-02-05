@@ -7,7 +7,7 @@ function App() {
   const isauthed = user == null;
 
   return (
-    <div className="App"> <Header isauthed={isauthed} /> </div>
+    <div className="App"> <Header isauthed={isauthed} user={user}/> </div>
   );
 }
 

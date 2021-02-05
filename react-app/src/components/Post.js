@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react"
+import PostView from "../pages/PostView";
+import './Post.css'
 
 function Post(props) {
-    // db와 연결하여 idx props에 해당하는 게시글 가져오기 
-    const [title, setTitle] = useState(null);
-    const [views, setViews] = useState(null);
-    const [likes, setLikes] = useState(null);
 
+    const viewpost = () => {
+        return(
+            <PostView elem={props.elem} />
+        );
+    }
 
     return(
-        <main className="post-list">
-            <div className="title">
-                {title}
-            </div>
-            <section className="views">
-                {views}
-            </section>
+        <main className="post">
+            <button className="title" onClick={viewpost}>
+                <h3>{props.elem.content_title}</h3>
+            </button>
             <section className="likes">
-                {likes}
+                ♡ {props.elem.content_count}
             </section>
         </main>
     );

@@ -18,3 +18,9 @@
   .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
     min-height: 500px;
   }
+
+  .post-category{
+    width: 10%;
+    height: 35px;
+    margin-bottom: 5px;
+  }
