@@ -1,4 +1,4 @@
-const pool = require('../dbconfig/dbconfig')
+const pool = require('../config/dbconfig')
 
 
 let moment = require('moment');
@@ -9,25 +9,27 @@ class ReadController {
 
   // 글 상세내역 가져오기
   async getContent(req, res, next) {
+    let comment_num = req.params.contentNum
+
     pool.getConnection((err, conn) => {
       if (err) throw err
 
       conn.query('SELECT c.content_title, c.content_con, c.content_count, c.de_cate_name, cp.pic_path FROM content AS c JOIN content_pic AS cp ON c.content_num = cp.content_num  WHERE c.content_num = ?', [
-        1 //수정할 content_num
+        comment_num
       ], (err, contentInfo) => {
         if (err) throw err
 
         req.contentInfo = contentInfo
 
         conn.query('SELECT COUNT(user_id) AS like_count FROM like_list WHERE content_num = ?', [
-          1 //수정할 content_num
+          comment_num
         ], (err, likeCount) => {
           if (err) throw err
 
           req.likeCount = likeCount
 
           conn.query('SELECT comment_con, user_id, comment_date FROM comment_list WHERE content_num = ? order by comment_date desc', [
-            1 //수정할 content_num
+            comment_num
           ], (err, commentList) => {
             if (err) throw err
 
@@ -48,7 +50,7 @@ class ReadController {
 
       let contentNum = req.params.contentNum
       let commentCon = req.body.commentCon
-      let userId = 'test'
+      let userId = req.body.userId
       let nowTime = moment().format('YYYY-MM-DD HH:mm:ss');
       req.addCommetState = false
 
@@ -140,7 +142,7 @@ class ReadController {
       if (err) throw err
 
       let nowTime = moment().format('YYYY-MM-DD HH:mm:ss');
-      let userId = 'test'
+      let userId = req.body.userId
       let contentNum = req.params.contentNum
 
       req.addLikeContentState = false

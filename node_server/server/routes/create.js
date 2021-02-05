@@ -15,8 +15,8 @@ router.post('/createContent', Createcontent.createContent, (req, res)=>{
 })
 
 // 글 수정
-router.post('/updateContent', Createcontent.updateContent, (req, res)=>{
-  if(req.contenUadateState){
+router.post('/updateContent/:contentNum', Createcontent.updateContent, (req, res)=>{
+  if(req.contenUpdateState){
         res.send({
             state:'success'
         })
@@ -24,7 +24,7 @@ router.post('/updateContent', Createcontent.updateContent, (req, res)=>{
 })
 
 // 글 삭제
-router.post('/deleteContent', Createcontent.deleteContent, (req, res)=>{
+router.post('/deleteContent/:contentNum', Createcontent.deleteContent, (req, res)=>{
   if(req.contenDeleteState){
         res.send({
             state:'success'

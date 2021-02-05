@@ -6,12 +6,12 @@ const Read = new ReadController()
 
 
 // 글 상세내역 표시
-router.get('/readContent', Read.getContent, (req, res)=>{
+router.get('/readContent/:contentNum', Read.getContent, (req, res)=>{
 
     if(req.commentList){
       res.send({
         contentInfo:req.contentInfo,
-        likeCount:req.likeCount,
+        //likeCount:req.likeCount,
         commentList:req.commentList
       })
     }
@@ -20,7 +20,7 @@ router.get('/readContent', Read.getContent, (req, res)=>{
 
 // 댓글 추가 API
 router.post('/add/:contentNum', Read.addComment,(req, res)=>{
-  
+
   if(req.addCommetState){
     res.send({
       state:'success'
@@ -48,7 +48,7 @@ router.put('/edit/comment/:commentNum', Read.editComment ,(req, res)=>{
 
 // 댓글 삭제
 router.delete('/delete/comment/:commentNum', Read.deleteComment,(req, res)=>{
-  
+
   if(req.deleteCommentState){
     res.send({
       state:'success'
@@ -84,7 +84,7 @@ router.post('/add/like/:contentNum', Read.addLikeContent,(req, res)=>{
 // 공감 삭제
 
 router.delete('/delete/like/:contentNum',Read.deleteLikeContent,(req, res)=>{
-  
+
   if(req.deleteLikeContentState){
     res.send({
       state:'success'
