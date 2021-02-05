@@ -1,0 +1,32 @@
+.back {
+  border: 1px solid #333;
+  padding: 8px;
+  border-radius: 15px;
+  margin-bottom: 2%;
+}
+
+.clear {
+  clear: both;
+  border: 2px solid #333;
+  padding: 3%;
+}
+
+.content {
+  padding: 3%;
+  text-align: initial;
+}
+
+.like {
+  text-align: left;
+}
+
+.comment {
+  text-align: left;
+}
+
+.commentbtn {
+  border: 1px solid #333;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: inherit;
+}
