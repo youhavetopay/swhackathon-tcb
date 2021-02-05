@@ -24,7 +24,7 @@ export class Login extends React.Component {
             </div>
           </div>
           <div className="footer">
-            <Link to="./Register"> 
+            <Link to="./User"> 
               <button> 회원가입 </button>
             </Link>
           </div>
