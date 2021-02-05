@@ -15,7 +15,15 @@ function PostView(props) {
         <Route path="/write" render={() => <WritePost posttitle={props.title}/>} />
     }
     // 작성자와 보는사람이 같으면 수정/삭제 버튼 표시
+    const showButton = () => {
 
+    }
+
+    return(
+        <div>
+            
+        </div>
+    );
 }
 
 export default PostView;

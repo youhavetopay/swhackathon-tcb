@@ -2,20 +2,27 @@ import React, {useState} from 'react';
 import Post from "../components/Post";
 
 function PostList(){
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([{
+        idx: null,
+        title: '',
+        category: ''
+    }]);
     const listcount = 10;
     let pageindex = 0;
 
-    const renderPosts = () => {
-        let i = 0;
-        for(i = 10 * pageindex; i < 10 * pageindex + listcount; i++){
-            <Post index={i}></Post>
-        }
+    const renderPosts = (cnt) => {
+        // Post 목록 불러오기
+        const { posts } = posts;
+        const postlist = posts.map(r => {
+            return r.idx + r.title;
+        });
+        
+        return postlist;
     }
 
     return(
         <div>
-            {renderPosts}
+            {renderPosts(listcount)}
         </div>
     );
 }

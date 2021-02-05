@@ -12,12 +12,12 @@ function Post(props) {
             <div className="title">
                 {title}
             </div>
-            <div className="views">
+            <section className="views">
                 {views}
-            </div>
-            <div className="likes">
+            </section>
+            <section className="likes">
                 {likes}
-            </div>
+            </section>
         </main>
     );
 }
