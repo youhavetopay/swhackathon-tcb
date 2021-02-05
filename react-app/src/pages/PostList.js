@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Posts(){
+function PostList(){
     const data = useState([]);
 
     return(
@@ -12,4 +12,4 @@ function Posts(){
     );
 }
 
-export default Posts;
+export default PostList;

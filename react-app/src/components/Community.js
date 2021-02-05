@@ -1,7 +1,7 @@
 import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom"
 import ComMain from "../pages/ComMain"
 import User from "../pages/User"
-import Posts from "../pages/Posts"
+import PostList from "../pages/PostList"
 import NoPageFound from "../pages/NoPageFound"
 
 function Community(){
@@ -23,7 +23,7 @@ function Community(){
                 <Switch>
                     <Route exact path="/" component={ComMain} />
                     <Route path="/user" component={User} />
-                    <Route path="/posts" component={Posts} />
+                    <Route path="/posts" component={PostList} />
                     <Route component={NoPageFound} />
                 </Switch>
             </main>
