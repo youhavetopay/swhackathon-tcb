@@ -7,7 +7,7 @@ class UsersController {
   // user 읽기
   async readUser(req, res, next) {
     //수정 data
-    var user_id = 'nari' //req.body.user_id
+    var user_id = req.body.user_id //req.body.user_id
 
     pool.getConnection((err, conn)=>{
         if (err) throw err
@@ -27,8 +27,8 @@ class UsersController {
   // user 수정
   async updateUser(req, res, next) {
     //수정 data
-    var user_id = 'nari' //req.body.user_id
-    var user_name = 'testUsr'
+    var user_id = req.body.user_id //req.body.user_id
+    var user_name = req.body.user_name
 
     req.userUpdateState = false;
 
@@ -50,7 +50,7 @@ class UsersController {
   // user 삭제
   async deleteUser(req, res, next) {
     //수정 data
-    var user_id = 'nari' //req.body.user_id
+    var user_id = req.body.user_id //req.body.user_id
 
     req.userDeleteState = false;
 

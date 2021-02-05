@@ -50,7 +50,7 @@ class ReadController {
 
       let contentNum = req.params.contentNum
       let commentCon = req.body.commentCon
-      let userId = 'test'
+      let userId = req.body.userId
       let nowTime = moment().format('YYYY-MM-DD HH:mm:ss');
       req.addCommetState = false
 
@@ -142,7 +142,7 @@ class ReadController {
       if (err) throw err
 
       let nowTime = moment().format('YYYY-MM-DD HH:mm:ss');
-      let userId = 'test'
+      let userId = req.body.userId
       let contentNum = req.params.contentNum
 
       req.addLikeContentState = false
