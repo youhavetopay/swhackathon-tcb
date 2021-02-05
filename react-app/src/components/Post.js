@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react"
-import PostView from "../pages/PostView";
+import { Link } from 'react-router-dom'
 import './Post.css'
 
 function Post(props) {
 
-    const viewpost = () => {
-        return(
-            <PostView elem={props.elem} />
-        );
-    }
-
-    return(
+    return (
         <main className="post">
-            <button className="title" onClick={viewpost}>
-                <h3>{props.elem.content_title}</h3>
-            </button>
+            <Link to={{
+                pathname : './postview',
+                state : {
+                    elem : props.elem
+                }
+            }}>
+                <button className="title">
+                    <h3>{props.elem.content_title}</h3>
+                </button>
+            </Link>
             <section className="likes">
                 ♡ {props.elem.content_count}
             </section>

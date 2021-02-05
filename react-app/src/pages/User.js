@@ -24,10 +24,11 @@ class User extends Component {
 				<div className="container">
 					<h1 className="header">Account settings</h1>
 					<div className="img-holder">
-            <h4>profile picture</h4>
-						<img src={profileImg} alt="" id="img" className="img" />
+            <div className="text"><h4>profile picture</h4></div>
+						<img src={profileImg} alt="" id="img" className="img" /><br></br>
+            <input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
 					</div>
-					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
+					  
           <div className="form">
             <div className="form-group">
               <label htmlFor="ID">아이디</label>

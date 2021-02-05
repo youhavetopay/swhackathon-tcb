@@ -30,6 +30,7 @@ function PostView(props) {
     return (
         <div>
             {showButton}
+            {console.log(props.location.elem)}
         </div>
     );
 }
