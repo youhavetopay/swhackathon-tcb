@@ -29,6 +29,41 @@ router.post('/add/:contentNum', Read.addComment,(req, res)=>{
 })
 
 
+// 댓글 수정
+router.put('/edit/comment/:commentNum', Read.editComment ,(req, res)=>{
+
+  if(req.editCommentState){
+    res.send({
+      state:'success'
+    })
+  }
+  else{
+    res.send({
+      state:'fail',
+      log:'권한이 없는 댓글 입니다.'
+    })
+  }
+
+})
+
+// 댓글 삭제
+router.delete('/delete/comment/:commentNum', Read.deleteComment,(req, res)=>{
+  
+  if(req.deleteCommentState){
+    res.send({
+      state:'success'
+    })
+  }
+  else{
+    res.send({
+      state:'fail',
+      log:'권한이 없는 댓글 입니다.'
+    })
+  }
+
+})
+
+
 // 공감 추가
 router.post('/add/like/:contentNum', Read.addLikeContent,(req, res)=>{
 
@@ -44,5 +79,25 @@ router.post('/add/like/:contentNum', Read.addLikeContent,(req, res)=>{
     })
   }
 })
+
+
+// 공감 삭제
+
+router.delete('/delete/like/:contentNum',Read.deleteLikeContent,(req, res)=>{
+  
+  if(req.deleteLikeContentState){
+    res.send({
+      state:'success'
+    })
+  }
+  else{
+    res.send({
+      state:'fail',
+      log:'권한이 없거나 공감을 한 적이 없습니다.'
+    })
+  }
+})
+
+
 
 module.exports = router
