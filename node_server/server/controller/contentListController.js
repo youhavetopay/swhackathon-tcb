@@ -24,7 +24,7 @@ class ContentListController {
             // 카테고리 선택 안했을 때
             if(!req.body.category){
                 conn.query(`select content.* from(
-                    select content_num, content_title, content_date, content_count, user_id, de_cate_name from content order by content_date DESC
+                    select * from content order by content_date DESC
                     ) as content
                     limit ?, 10`,[
                         page_num
@@ -53,7 +53,7 @@ class ContentListController {
 
                 //카테고리 선택했을 때
                 conn.query(`select content.* from(
-                    select content_num, content_title, content_date, content_count, user_id, de_cate_name from content order by content_date DESC
+                    select * from content order by content_date DESC
                     ) as content
                     where content.de_cate_name in (?)
                     limit ?, 10`,[
