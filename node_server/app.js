@@ -7,7 +7,7 @@ var logger = require('morgan');
 
 var passport = require('passport')
 var session = require('express-session')
-
+var cors = require('cors')
 
 // 라우터 추가하면 여기에 불러오기
 var indexRouter = require('./server/routes/index');
@@ -21,7 +21,10 @@ const { allowedNodeEnvironmentFlags } = require('process');
 
 var app = express();
 
-
+let corsOptions = {
+  origin: 'http://192.168.96.22:3000', // 허락하고자 하는 요청 주소
+  credentials: true // true로 하면 설정한 내용을 response 헤더에 추가 해줍니다.
+} 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'server/views'));
@@ -32,8 +35,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors({origin:"http://localhost:3000"}))
 
-
+    
 app.use(session({secret:'MySecret', resave:false, saveUninitialized:true}))
 
 app.use(passport.initialize())
