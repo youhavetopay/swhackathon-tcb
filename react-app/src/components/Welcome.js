@@ -26,7 +26,7 @@ function Welcome(){
                 <Switch>
                     <Route exact path="/" component={Main} />
                     <Route path="/login" component={Login} />
-                    <Route path="/write" render={() => <WritePost posttitle={null}/>} />
+                    <Route path="/write" render={() => <WritePost postnum={null}/>} />
                     <Route component={NoPageFound} />
                 </Switch>
             </main>

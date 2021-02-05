@@ -6,7 +6,7 @@ function Header(props) {
     if (props.isauthed)
         return (
             <div className="default">
-                <Community />
+                <Community user={props.user}/>
             </div>
         );
     else

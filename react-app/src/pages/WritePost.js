@@ -8,7 +8,9 @@ import Axios from 'axios';
 function WritePost(props) {
     const [postContent, setPostContent] = useState({
         title: '',
-        content: ''
+        content: '',
+        category: '',
+        user_id: ''
     })
 
     const getValue = e => {
@@ -18,6 +20,8 @@ function WritePost(props) {
             [name]: value
         });
     };
+
+    const uuid = props.user_id || 0;
 
     const submitPost = () => {
 
@@ -29,20 +33,28 @@ function WritePost(props) {
             alert('내용을 작성해주세요');
             return 0;
         }
+        if (postContent.category === "") {
+            alert('카테고리를 선택해주세요');
+            return 0;
+        }
 
-        if (props.posttitle == null)
-            Axios.post('http://localhost:3306/createContent', {
+        if (props.postnum== null)
+            Axios.post('http://localhost:3002/create/createContent', {
                 title: postContent.title,
-                content: postContent.content
+                content: postContent.content,
+                de_cate_name: postContent.category,
+                user_id: uuid
             }).then(() => {
                 alert('게시글이 업로드되었습니다!');
                 const { goto } = { goto: { pathname: "/" } };
                 <Redirect to={goto} />
             })
         else
-            Axios.post('http://localhost:3306/updateContent', {
+            Axios.post('http://localhost:3002/create/updateContent/' + props.postnum, {
                 title: postContent.title,
-                content: postContent.content
+                content: postContent.content,
+                category: postContent.category,
+                user_id: uuid
             }).then(()=>{
                 alert('게시글이 수정되었습니다!');
                 const { goto } = { goto: { pathname: "/"} };
@@ -55,15 +67,22 @@ function WritePost(props) {
             <div className="post-editor">
                 <h2>게시글 작성하기</h2>
                 <input className="post-title" type='text' placeholder='제목을 입력해주세요' onChange={getValue} name="title" />
+                <select className="post-category" onChange={getValue} name="category" required>
+                    <option value="">선택</option>
+                    <option value="Daily">생활</option>
+                    <option value="Office">직장</option>
+                    <option value="Leisure">여가</option>
+                    <option value="Other">기타</option>
+                </select>
                 <CKEditor
                     editor={ClassicEditor}
                     data=""
                     onReady={editor => {
-                        if(props.posttitle == null)
+                        if(props.postnum == null)
                             console.log('새 글을 작성합니다', editor);
                         else{
                             console.log('기존 글을 수정합니다', editor);
-                            // 기존 제목과 내용 불러오기
+                            Axios.get()
                         }
                     }}
                     onChange={(event, editor) => {
