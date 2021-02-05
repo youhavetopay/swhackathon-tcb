@@ -1,13 +1,21 @@
 import React, {useState} from 'react';
+import Post from "../components/Post";
 
 function PostList(){
-    const data = useState([]);
+    const [posts, setPosts] = useState([]);
+    const listcount = 10;
+    let pageindex = 0;
+
+    const renderPosts = () => {
+        let i = 0;
+        for(i = 10 * pageindex; i < 10 * pageindex + listcount; i++){
+            <Post index={i}></Post>
+        }
+    }
 
     return(
         <div>
-            <p>
-                Post List
-            </p>
+            {renderPosts}
         </div>
     );
 }
