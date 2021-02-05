@@ -47,7 +47,7 @@ class CreateController {
   // 글 수정
   async updateContent(req, res, next) {
     //수정 data
-    var content_num = 4
+    var content_num = req.params.contentNum
     var title = 'test입니다.' //req.body.title
     var content = 'test' //req.body.content
     var category = '테스트카테고리상세'
@@ -79,7 +79,7 @@ class CreateController {
   // 글 삭제
   async deleteContent(req, res, next) {
     //수정 data
-    var content_num = 4
+    var content_num = req.params.contentNum
 
     req.contenDeleteState = false;
 
