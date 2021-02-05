@@ -1,10 +1,21 @@
-import { useDebugValue } from 'react'
+import React, { useState, useEffect } from 'react';
 import './ComMain.css'
 import mainPersonImg from '../images/commain_person.png'
 import mainLogImg from '../images/commain_log.png'
+import Axios from 'axios';
 
 
 function ComMain() {
+
+    const [ranking, setRanking] = useState([]);
+
+    useEffect(() => {
+        Axios.get('http://localhost:3002/contentList/0').then((response) => {
+            console.log(response.data.topContent);
+            setRanking(response.data.topContent);
+        })
+    }, [])
+
     return(
         <div className="body">
             <div className="flex_row">
@@ -41,16 +52,11 @@ function ComMain() {
                         <span style={{marginTop:20}}>TRENDING</span>
                         <span style={{fontSize:"20px", marginBottom:20}}>일일 기준 최다 공감수</span>
                         <div className="flex_column content_list">
-                            <span>test1</span>
-                            <span>test2</span>
-                            <span>test3</span>
-                            <span>test4</span>
-                            <span>test5</span>
-                            <span>test6</span>
-                            <span>test7</span>
-                            <span>test8</span>
-                            <span>test9</span>
-                            <span>test10</span>
+                            {ranking.map(elem =>
+                                <span key={elem.content_num} >
+                                    {elem.content_title}
+                                </span>
+                            )}
                         </div>
                     </div>
                 </div>
