@@ -42,7 +42,7 @@ function WritePost(props) {
             Axios.post('http://localhost:3002/create/createContent', {
                 title: postContent.title,
                 content: postContent.content,
-                category: "테스트카테고리상세",
+                category: postContent.category,
                 user_id: uuid
             }).then(() => {
                 alert('게시글이 업로드되었습니다!');
